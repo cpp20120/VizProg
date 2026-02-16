@@ -1,0 +1,23 @@
+{
+  "name": "practise1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "ts-node-dev --respawn index.ts",
+    "task": "node index.ts",
+    "test": "vitest",
+    "test-watch": "vitest --watch",
+    "test-coverage": "vitest run --coverage"
+  },
+  "author": "cppshizoid",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.18",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
