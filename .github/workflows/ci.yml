@@ -1,10 +1,17 @@
 name: Typescript CI
 
 on:
-    push:
-        branches: [ master lab1 lab3 ]
-    pull_request: 
-        branches: [ master lab1 lab3]
+  workflow_dispatch:
+  push:
+    branches: 
+      - master 
+      - lab1 
+      - lab3
+  pull_request: 
+    branches: 
+      - master 
+      - lab1
+      - lab3
 
 jobs:
     build:
