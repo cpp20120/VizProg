@@ -9,6 +9,7 @@ on:
       - lab3
       - lab4
       - lab5
+      - lab6
   pull_request: 
     branches: 
       - master 
@@ -16,6 +17,7 @@ on:
       - lab3
       - lab4
       - lab5
+      - lab6
 
 jobs:
     build:

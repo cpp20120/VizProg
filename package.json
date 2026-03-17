@@ -9,6 +9,7 @@
     "dev": "ts-node-dev --respawn src/index.ts",
     "task": "node src/index.ts",
     "test": "vitest run",
+    "type-test": "vitest --typecheck",
     "test:watch": "vitest",
     "test-coverage": "vitest run --coverage"
   },
