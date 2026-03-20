@@ -156,7 +156,7 @@ describe('EventHandlers', () => {
     onMouseLeave: () => void;
     onCustomEvent: () => void;
     onKEYDOWN: () => void;
-    onInternal: () => void;
+    on__internal: () => void;
   }>();
 });
 
