@@ -1,0 +1,31 @@
+.card {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.authors {
+  font-size: 14px;
+  color: #555;
+}

@@ -1,14 +1,10 @@
 {
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "strict": true,
-    "types": ["node", "vitest/globals"],
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["src", "tests", "**/*.test.ts"],
-  "exclude": ["node_modules"]
+    "baseUrl": ".",
+  }
 }
