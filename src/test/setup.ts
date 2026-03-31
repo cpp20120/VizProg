@@ -20,7 +20,7 @@ Object.defineProperty(window, 'matchMedia', {
     })),
 });
 
-global.IntersectionObserver = class IntersectionObserver {
+vi.stubGlobal('IntersectionObserver', class IntersectionObserver {
     constructor() { }
     disconnect() { }
     observe() { }
@@ -28,11 +28,11 @@ global.IntersectionObserver = class IntersectionObserver {
         return [];
     }
     unobserve() { }
-} as any;
+});
 
-global.ResizeObserver = class ResizeObserver {
+vi.stubGlobal('ResizeObserver', class ResizeObserver {
     constructor() { }
     disconnect() { }
     observe() { }
     unobserve() { }
-} as any;
+});
