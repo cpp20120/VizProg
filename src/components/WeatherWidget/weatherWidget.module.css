@@ -1,0 +1,117 @@
+.container {
+    display: grid;
+    grid-template-areas:
+        "today"
+        "main"
+        "times"
+        "days";
+
+    gap: 16px;
+
+    width: 320px;
+    padding: 20px;
+
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+
+    color: white;
+}
+
+/* ===== Today ===== */
+
+.today {
+    grid-area: today;
+    text-align: center;
+    font-size: 18px;
+    color: #a2b5f7;
+}
+
+/* ===== Main Info ===== */
+
+.main {
+    grid-area: main;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.city {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e6ebfa;
+}
+
+.temperature {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+/* ===== Times ===== */
+
+.times {
+    grid-area: times;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.timeItem {
+    min-width: 60px;
+    text-align: center;
+}
+
+.time {
+    font-size: 12px;
+    color: #a2b5f7;
+}
+
+.timeTemp {
+    font-size: 14px;
+    color: #ced9fa;
+}
+
+.icon {
+    width: 40px;
+}
+
+/* ===== Days ===== */
+
+.days {
+    grid-area: days;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+/* ===== Day Row ===== */
+
+.dayRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dayName {
+    color: #a2b5f7;
+}
+
+.dayRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dayIcon {
+    width: 30px;
+}
+
+.max {
+    color: #ced9fa;
+}
+
+.min {
+    color: #a2b5f7;
+}

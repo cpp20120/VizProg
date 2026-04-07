@@ -1,19 +1,51 @@
-import React, { useState } from 'react';
-import BookFetcher from './components/BookFetcher';
-import BookList from './components/BookList/BookList';
-import { Book } from './types/types';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
 
-const App: React.FC = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+import { DayOfWeekProps } from "./components/DaysOfWeek/DayOfWeek";
+import { updateWeather } from "./utils/weather";
+import { DayWeather } from "./types/types";
+import { WeatherWidget } from "./components/WeatherWidget/weatherWidget";
 
-  return (
-    <div>
-      <BookFetcher onBooksLoaded={setBooks} onLoading={setLoading} />
-      {loading ? <p>Loading...</p> : <BookList books={books} />}
-    </div>
-  );
+const App = () => {
+    const [city, setCity] = useState("");
+    const [days, setDays] = useState<DayWeather[]>([]);
+    const [next_days, setNextDays] = useState<DayOfWeekProps[]>([]);
+    const [backgound_color, setBackgrounColor] = useState("");
+    const [backgound_color_next_days, setBackgrounColorNextDays] = useState("");
+
+    useEffect(() => {
+        if (city === "") setCity("London");
+        const timer = setTimeout(
+            () =>
+                updateWeather(
+                    city,
+                    days,
+                    setDays,
+                    setBackgrounColor,
+                    setBackgrounColorNextDays,
+                    setNextDays
+                ),
+            500
+        );
+        return () => clearTimeout(timer);
+    }, [city, days]);
+
+    return (
+        <>
+            {days.length !== 0 ? (
+                <WeatherWidget
+                    days={days}
+                    next_days={next_days}
+                    city={city}
+                    setCity={setCity}
+                    backgroundColor={backgound_color}
+                    backgroundColorNextDays={backgound_color_next_days}
+                />
+            ) : (
+                <></>
+            )}
+        </>
+    );
 };
 
 export default App;
