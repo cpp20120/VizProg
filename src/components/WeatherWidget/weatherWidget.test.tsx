@@ -70,14 +70,40 @@ const mockDays: DayWeather[] = [
 
 const mockNextDays: DayOfWeekProps[] = [
     {
-        DayOfWeek: 'Понедельник', MaxTemperature: 20, WeatherIcon: '01d',
+        DayOfWeek: 'Понедельник',
+        MaxTemperature: 20,
+        WeatherIcon: '01d',
         DayNumber: 0,
         MinTemperature: 0
     },
-    { DayOfWeek: 'Вторник', MaxTemperature: 18, WeatherIcon: '02d', DayNumber: 1, MinTemperature: 15 },
-    { DayOfWeek: 'Среда', MaxTemperature: 15, WeatherIcon: '03d', DayNumber: 2, MinTemperature: 12 },
-    { DayOfWeek: 'Четверг', MaxTemperature: 17, WeatherIcon: '01d', DayNumber: 3, MinTemperature: 14 },
-    { DayOfWeek: 'Пятница', MaxTemperature: 19, WeatherIcon: '02d', DayNumber: 4, MinTemperature: 16 },
+    {
+        DayOfWeek: 'Вторник',
+        MaxTemperature: 18,
+        WeatherIcon: '02d',
+        DayNumber: 1,
+        MinTemperature: 15
+    },
+    {
+        DayOfWeek: 'Среда',
+        MaxTemperature: 15,
+        WeatherIcon: '03d',
+        DayNumber: 2,
+        MinTemperature: 12
+    },
+    {
+        DayOfWeek: 'Четверг',
+        MaxTemperature: 17,
+        WeatherIcon: '01d',
+        DayNumber: 3,
+        MinTemperature: 14
+    },
+    {
+        DayOfWeek: 'Пятница',
+        MaxTemperature: 19,
+        WeatherIcon: '02d',
+        DayNumber: 4,
+        MinTemperature: 16
+    },
 ];
 
 describe('WeatherWidget', () => {
@@ -95,21 +121,25 @@ describe('WeatherWidget', () => {
             />
         );
 
-        // Проверяем наличие города
-        expect(screen.getByText('Moscow')).toBeInTheDocument();
+        // Проверяем наличие города в input (используем getByDisplayValue для input)
+        expect(screen.getByDisplayValue('Moscow')).toBeInTheDocument();
         
-        // Проверяем наличие температуры (может быть в разных местах)
-        expect(screen.getAllByText('20°').length).toBeGreaterThan(0);
+        // Проверяем наличие температуры
+        expect(screen.getByText('20°')).toBeInTheDocument();
         
-        // Проверяем наличие параметров
-        expect(screen.getByText(/влажность/i)).toBeInTheDocument();
-        expect(screen.getByText(/50/)).toBeInTheDocument();
+        // Проверяем наличие параметров (используем более гибкие матчеры)
+        expect(screen.getByText(/Humidity/i)).toBeInTheDocument();
+        expect(screen.getByText('50%')).toBeInTheDocument();
         
-        expect(screen.getByText(/ветер/i)).toBeInTheDocument();
-        expect(screen.getByText(/5/)).toBeInTheDocument();
+        expect(screen.getByText(/Wind/i)).toBeInTheDocument();
+        expect(screen.getByText(/5.*m\/s/)).toBeInTheDocument();
         
-        expect(screen.getByText(/давление/i)).toBeInTheDocument();
-        expect(screen.getByText(/1000/)).toBeInTheDocument();
+        expect(screen.getByText(/Air Pressure/i)).toBeInTheDocument();
+        expect(screen.getByText('1000 mm')).toBeInTheDocument();
+        
+        // Проверяем наличие UV
+        expect(screen.getByText('UV')).toBeInTheDocument();
+        expect(screen.getByText('5')).toBeInTheDocument();
     });
 
     it('renders with different city', () => {
@@ -126,7 +156,8 @@ describe('WeatherWidget', () => {
             />
         );
 
-        expect(screen.getByText('Saint Petersburg')).toBeInTheDocument();
+        // Используем getByDisplayValue для проверки значения в input
+        expect(screen.getByDisplayValue('Saint Petersburg')).toBeInTheDocument();
     });
 
     it('applies custom background colors', () => {
