@@ -1,0 +1,369 @@
+:root {
+  color: #202020;
+  background: #eeeeee;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 1px solid #aaa;
+  background: #f7f7f7;
+  border-radius: 3px;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e9e9e9;
+}
+
+input,
+select {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 6px 8px;
+  min-width: 0;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-width: 1024px;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  color: #ffffff;
+  background: #26323a;
+}
+
+.sidebar a {
+  color: #dfeef3;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+.sidebar a.active {
+  background: #43515a;
+}
+
+.app-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  border-bottom: 1px solid #ccc;
+  background: #ffffff;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page {
+  padding: 18px;
+}
+
+.page.narrow {
+  max-width: 720px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.document-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.document-card,
+.panel,
+.auth-card,
+.modal {
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  padding: 12px;
+}
+
+.document-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.linklike {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.doc-meta {
+  color: #66737d;
+  font-size: 12px;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #ccc;
+}
+
+.preview-grid span {
+  min-height: 26px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.card-actions,
+.modal-actions,
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.auth-page,
+.centered {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.auth-card {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-error {
+  color: #b42318;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+.modal {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.spreadsheet-page {
+  height: calc(100vh - 56px);
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-width: 0;
+}
+
+.toolbar,
+.formula-bar {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ccc;
+  background: #ffffff;
+}
+
+.toolbar button {
+  min-width: 32px;
+}
+
+.file-button {
+  position: relative;
+  display: inline-flex;
+  border: 1px solid #c4ccd4;
+  background: #ffffff;
+  border-radius: 3px;
+  padding: 6px 9px;
+}
+
+.file-button input {
+  display: none;
+}
+
+.formula-bar {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.grid-viewport {
+  overflow: auto;
+  position: relative;
+  background: #ffffff;
+  user-select: none;
+}
+
+.grid-canvas {
+  position: relative;
+}
+
+.corner-cell,
+.column-header,
+.row-header,
+.cell-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.corner-cell,
+.column-header,
+.row-header {
+  background: #eef3f6;
+  border-right: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.cell {
+  border-right: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 4px 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #ffffff;
+}
+
+.cell.selected {
+  outline: 1px solid #2d7ff9;
+  outline-offset: -1px;
+}
+
+.cell.active {
+  outline: 2px solid #1b5fc1;
+  outline-offset: -2px;
+}
+
+.cell-editor {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  user-select: text;
+}
+
+.resize-handle {
+  position: absolute;
+  background: transparent;
+}
+
+.resize-handle.vertical {
+  right: -3px;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+}
+
+.resize-handle.horizontal {
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  cursor: row-resize;
+}
+
+.context-menu {
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  background: #ffffff;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.context-menu button {
+  border: 0;
+  text-align: left;
+}
+
+.save-status {
+  margin-left: auto;
+  color: #315467;
+}
+
+.save-status.error {
+  color: #b42318;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px;
+}
+
+.toasts {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  border: 1px solid #aaa;
+}
